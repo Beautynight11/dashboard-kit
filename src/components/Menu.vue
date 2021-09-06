@@ -5,65 +5,48 @@
         <div class="menu__logo"></div>
       </div>
       <div class="menu__name">
-        <router-link
-            :to="{ path: '/' }"
-            class="menu__home"
-        >
+        <router-link :to="{ path: '/' }" class="menu__home">
           Dashboard Kit
         </router-link>
       </div>
     </div>
     <div class="menu__navigation">
       <ul class="menu__list">
-        <router-link
-            :to="{ path: '/overview' }"
-            class="menu__link"
-        >
+        <router-link :to="{ path: '/overview' }" class="menu__link">
           <li class="menu__item">
-            <div class="menu__icon menu__icon--overview">
-            </div>
-              Overview
+            <div class="menu__icon menu__icon--overview"></div>
+            Overview
           </li>
         </router-link>
-        <router-link
-            :to="{ path: '/tickets' }"
-            class="menu__link"
-        >
+        <router-link :to="{ path: '/tickets' }" class="menu__link">
           <li class="menu__item">
-            <div class="menu__icon menu__icon--tickets">
-            </div>
-              Tickets
+            <div class="menu__icon menu__icon--tickets"></div>
+            Tickets
           </li>
         </router-link>
         <li class="menu__item">
-          <div class="menu__icon menu__icon--ideas">
-          </div>
+          <div class="menu__icon menu__icon--ideas"></div>
           Ideas
         </li>
         <li class="menu__item">
-          <div class="menu__icon menu__icon--contacts">
-          </div>
+          <div class="menu__icon menu__icon--contacts"></div>
           Contacts
         </li>
         <li class="menu__item">
-          <div class="menu__icon menu__icon--agent">
-          </div>
+          <div class="menu__icon menu__icon--agent"></div>
           Agents
         </li>
         <li class="menu__item">
-          <div class="menu__icon menu__icon--articles">
-          </div>
+          <div class="menu__icon menu__icon--articles"></div>
           Articles
         </li>
         <li class="menu__delimiter" />
         <li class="menu__item">
-          <div class="menu__icon menu__icon--settings">
-          </div>
+          <div class="menu__icon menu__icon--settings"></div>
           Settings
         </li>
         <li class="menu__item">
-          <div class="menu__icon menu__icon--subscription">
-          </div>
+          <div class="menu__icon menu__icon--subscription"></div>
           Subscription
         </li>
       </ul>
@@ -74,7 +57,7 @@
 <script>
 export default {
   name: "Menu"
-}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -223,5 +206,4 @@ export default {
   &__link
     color: #A4A6B3
     text-decoration: none
-
 </style>

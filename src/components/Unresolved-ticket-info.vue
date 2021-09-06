@@ -20,7 +20,7 @@ export default {
       required: true
     }
   }
-}
+};
 </script>
 
 <style scoped lang="sass">
@@ -44,5 +44,4 @@ export default {
 
   &__number
     color: #9FA2B4
-
 </style>

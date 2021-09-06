@@ -2,19 +2,17 @@
   <div class="task">
     <div class="task__info">
       <form class="task__input">
-        <input class="task__checkbox"
-               type="checkbox"
-               :id="`input${id}`"
-               @click="value = !value"
+        <input
+          class="task__checkbox"
+          type="checkbox"
+          :id="`input${id}`"
+          @click="value = !value"
         />
         <label :for="`input${id}`" class="task__label">
           {{ name }}
         </label>
       </form>
-      <div
-          class="task__note"
-          :class="classNote"
-      >
+      <div class="task__note" :class="classNote">
         {{ note }}
       </div>
     </div>
@@ -24,16 +22,15 @@
 <script>
 export default {
   name: "Task",
-  computed: {
-  },
+  computed: {},
   data() {
     return {
       id: null,
-      value: true,
-    }
+      value: true
+    };
   },
-  mounted () {
-    this.id = this._uid
+  mounted() {
+    this.id = this._uid;
   },
   props: {
     name: {
@@ -49,7 +46,7 @@ export default {
       type: String
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>

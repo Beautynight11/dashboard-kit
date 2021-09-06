@@ -8,10 +8,9 @@
 
 <script>
 export default {
-  name: 'Home',
-  components: {
-  },
-}
+  name: "Home",
+  components: {}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -20,5 +19,4 @@ export default {
   &__default
     font-size: 50px
     text-align: center
-
 </style>

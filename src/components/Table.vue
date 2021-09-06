@@ -15,19 +15,16 @@
         </div>
       </div>
       <div class="table__content">
-        <TableBody
-            :items="itemsPage"
-            :headings="headings"
-        />
+        <TableBody :items="itemsPage" :headings="headings" />
       </div>
       <TableFooter
-          :total="items.length"
-          :page="page"
-          :size="size"
-          :size-list="sizeList"
-          :change-size="changeSize"
-          :go-to-next-page="goToNextPage"
-          :go-to-prev-page="goToPrevPage"
+        :total="items.length"
+        :page="page"
+        :size="size"
+        :size-list="sizeList"
+        :change-size="changeSize"
+        :go-to-next-page="goToNextPage"
+        :go-to-prev-page="goToPrevPage"
       />
     </div>
   </div>
@@ -46,8 +43,8 @@ export default {
     return {
       size: SIZES[0],
       sizeList: SIZES,
-      page: 0,
-    }
+      page: 0
+    };
   },
   computed: {
     itemsPage() {
@@ -83,7 +80,7 @@ export default {
       required: true
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -140,5 +137,4 @@ export default {
 
     &--filter
       background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11.437%200H.563c-.5%200-.752.606-.398.96L4.5%205.295v4.83c0%20.184.09.355.24.46l1.875%201.313a.563.563%200%2000.885-.461V5.295L11.835.96a.563.563%200%2000-.398-.96z%22%20fill%3D%22%23C5C7CD%22%2F%3E%3C%2Fsvg%3E")
-
 </style>

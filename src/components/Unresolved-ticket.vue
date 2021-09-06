@@ -1,10 +1,10 @@
 <template>
   <div class="unresolvedTicket">
     <UnresolvedTicketInfo
-        v-for="item in tickets"
-        :key="item.name"
-        :name="item.name"
-        :number="item.number"
+      v-for="item in tickets"
+      :key="item.name"
+      :name="item.name"
+      :number="item.number"
     />
   </div>
 </template>
@@ -20,26 +20,25 @@ export default {
     return {
       tickets: [
         {
-          name: 'Waiting on Feature Request',
+          name: "Waiting on Feature Request",
           number: 4238
         },
         {
-          name: 'Awaiting Customer Response',
+          name: "Awaiting Customer Response",
           number: 1005
         },
         {
-          name: 'Awaiting Developer Fix',
+          name: "Awaiting Developer Fix",
           number: 914
         },
         {
-          name: 'Pending',
+          name: "Pending",
           number: 281
-        },
-      ],
-    }
-  },
-}
+        }
+      ]
+    };
+  }
+};
 </script>
 
-<style lang="sass" scoped>
-</style>
+<style lang="sass" scoped></style>

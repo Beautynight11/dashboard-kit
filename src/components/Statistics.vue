@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "Statistics"
-}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -72,6 +72,4 @@ export default {
 
   &__card:hover &__title
     color: #3751FF
-
-
 </style>

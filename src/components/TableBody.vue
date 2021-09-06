@@ -3,45 +3,42 @@
     <table class="table-body__table">
       <tr class="table-body__row">
         <th
-            class="table-body__heading"
-            v-for="heading in headings"
-            :key="heading.name"
-            :class="heading.cn"
-          >
-            {{ heading.name }}
+          class="table-body__heading"
+          v-for="heading in headings"
+          :key="heading.name"
+          :class="heading.cn"
+        >
+          {{ heading.name }}
         </th>
         <th class="table-body__heading"></th>
       </tr>
       <tr
-          class="table-body__information"
-          v-for="item in items"
-          :key="item.name"
+        class="table-body__information"
+        v-for="item in items"
+        :key="item.name"
       >
         <td class="table-body__details">
           <div class="table-body__photo">
             <div
               class="table-body__img"
-              :style="{ 'background-image':`url( ${ item.photo } )`}"
+              :style="{ 'background-image': `url( ${item.photo} )` }"
             ></div>
           </div>
           <div class="table-body__data">
             {{ item.data }}
-            <div class="table-body__span">{{ item.info }}</div >
+            <div class="table-body__span">{{ item.info }}</div>
           </div>
         </td>
         <td class="table-body__name">
           {{ item.name }}
-          <div class="table-body__span">{{ item.release }}</div >
+          <div class="table-body__span">{{ item.release }}</div>
         </td>
         <td class="table-body__date">
           {{ item.date }}
-          <div class="table-body__span">{{ item.time }}</div >
+          <div class="table-body__span">{{ item.time }}</div>
         </td>
         <td class="table-body__priority">
-          <div
-              class="table-body__frame"
-              :style="getPriorityColor(item)"
-          >
+          <div class="table-body__frame" :style="getPriorityColor(item)">
             <span>{{ item.priority }}</span>
           </div>
         </td>
@@ -56,8 +53,7 @@
 <script>
 export default {
   name: "TableBody",
-  computed: {
-  },
+  computed: {},
   props: {
     items: {
       type: Array,
@@ -70,22 +66,21 @@ export default {
   },
   methods: {
     getPriorityColor(item) {
-      let color = '#CCC';
+      let color = "#CCC";
       const priority = item.priority.toLowerCase();
-      if (priority === 'high') {
-        color = '#F12B2C';
+      if (priority === "high") {
+        color = "#F12B2C";
       }
-      if (priority === 'normal') {
-        color = '#29CC97';
+      if (priority === "normal") {
+        color = "#29CC97";
       }
-      if (priority === 'low') {
-        color = '#FEC400';
+      if (priority === "low") {
+        color = "#FEC400";
       }
       return `background-color: ${color}`;
-    },
-
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="sass" scoped>
@@ -194,5 +189,4 @@ export default {
     cursor: pointer
     z-index: 10
     outline: none
-
 </style>

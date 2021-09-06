@@ -1,12 +1,12 @@
 <template>
   <div class="tasks">
-   <Task
-       v-for="elem in task"
-       :key="elem.name"
-       :name="elem.name"
-       :class-note="elem.class"
-       :note="elem.note"
-   />
+    <Task
+      v-for="elem in task"
+      :key="elem.name"
+      :name="elem.name"
+      :class-note="elem.class"
+      :note="elem.note"
+    />
   </div>
 </template>
 
@@ -21,23 +21,23 @@ export default {
       task: [
         {
           name: "Finish ticket update",
-          note: 'Urgent',
-          class: 'task__note--is-urgent'
+          note: "Urgent",
+          class: "task__note--is-urgent"
         },
         {
           name: "Create new ticket example",
-          note: 'New',
-          class: 'task__note--is-new'
+          note: "New",
+          class: "task__note--is-new"
         },
         {
           name: "Update ticket report",
-          note: 'Default',
-          class: 'task__note--is-default'
+          note: "Default",
+          class: "task__note--is-default"
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>

@@ -10,14 +10,14 @@
         <span>{{ group }}</span>
       </div>
       <div class="board__tickets" v-if="isTickets === true">
-        <UnresolvedTicket/>
+        <UnresolvedTicket />
       </div>
       <div class="board__task" v-if="isTask === true">
         <div class="board__new">
           <div class="task__name">Create new task</div>
           <button class="task__btn"></button>
         </div>
-        <Tasks/>
+        <Tasks />
       </div>
     </div>
   </div>
@@ -55,8 +55,8 @@ export default {
       required: false,
       type: Boolean
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="sass" scoped>
@@ -162,6 +162,4 @@ export default {
       height: 10px
       margin-left: -1px
       border-radius: 8px
-
-
 </style>

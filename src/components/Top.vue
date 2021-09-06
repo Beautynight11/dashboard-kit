@@ -26,7 +26,7 @@ export default {
       required: true
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -107,5 +107,4 @@ export default {
     position: absolute
     top: 2px
     left: 2px
-
 </style>

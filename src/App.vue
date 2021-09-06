@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="app__nav">
-      <Menu/>
+      <Menu />
     </div>
     <div class="app__desk">
       <div class="app__pages">
@@ -18,14 +18,14 @@
 import Top from "./components/Top";
 import Menu from "./components/Menu";
 
-const DEFAULT_TITLE = 'Title';
+const DEFAULT_TITLE = "Title";
 
 export default {
   components: { Top, Menu },
   data() {
     return {
       title: DEFAULT_TITLE
-    }
+    };
   },
   watch: {
     $route: {
@@ -35,9 +35,9 @@ export default {
         document.title = newTitle;
         this.title = newTitle;
       }
-    },
+    }
   }
-}
+};
 </script>
 
 <style lang="sass">

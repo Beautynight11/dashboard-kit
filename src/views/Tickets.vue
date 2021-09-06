@@ -1,10 +1,6 @@
 <template>
   <div class="tickets">
-    <Table
-        heading="All tickets"
-        :items="people"
-        :headings="headings"
-    />
+    <Table heading="All tickets" :items="people" :headings="headings" />
   </div>
 </template>
 
@@ -19,30 +15,30 @@ export default {
     return {
       headings: [
         {
-          name: 'Ticket details',
-          cn: 'table-body__heading--details'
+          name: "Ticket details",
+          cn: "table-body__heading--details"
         },
         {
-          name: 'Customer name',
-          cn: 'table-body__heading--custom'
+          name: "Customer name",
+          cn: "table-body__heading--custom"
         },
         {
-          name: 'Date',
-          cn: 'table-body__heading--date'
+          name: "Date",
+          cn: "table-body__heading--date"
         },
         {
-          name: 'Priority',
-          cn: 'table-body__heading--priority'
-        },
-      ],
-    }
+          name: "Priority",
+          cn: "table-body__heading--priority"
+        }
+      ]
+    };
   },
   computed: {
     ...mapState({
-      people: 'people'
+      people: "people"
     })
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>

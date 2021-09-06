@@ -2,25 +2,18 @@
   <div class="table-footer">
     <div class="table-footer__result">
       <div class="table-footer__title">Rows per page:</div>
-      <div
-          class="table-footer__number"
-      >{{ size }}</div>
-      <div
-          class="table-footer__choose"
-      >
-        <button
-            class="table-footer__chBtn"
-            @click="isChoice = !isChoice"
-        />
-        <div
-            class="table-footer__amount"
-            v-show="isChoice"
-        >
+      <div class="table-footer__number">{{ size }}</div>
+      <div class="table-footer__choose">
+        <button class="table-footer__chBtn" @click="isChoice = !isChoice" />
+        <div class="table-footer__amount" v-show="isChoice">
           <div
-              class="table-footer__num"
-              v-for="value in sizeList"
-              :key="value"
-              @click="changeSize(value); isChoice = !isChoice"
+            class="table-footer__num"
+            v-for="value in sizeList"
+            :key="value"
+            @click="
+              changeSize(value);
+              isChoice = !isChoice;
+            "
           >
             {{ value }}
           </div>
@@ -28,19 +21,17 @@
       </div>
     </div>
     <div class="table-footer__pages">
-      <div class="table-footer__page">
-        {{ current }} of {{ total }}
-      </div>
+      <div class="table-footer__page">{{ current }} of {{ total }}</div>
     </div>
     <div class="table-footer__btns">
       <button
-          :disabled="page === 0"
-          class="table-footer__btn table-footer__btn--left"
-          @click="goToPrevPage"
+        :disabled="page === 0"
+        class="table-footer__btn table-footer__btn--left"
+        @click="goToPrevPage"
       />
       <button
-          class="table-footer__btn table-footer__btn--right"
-          @click="goToNextPage"
+        class="table-footer__btn table-footer__btn--right"
+        @click="goToNextPage"
       />
     </div>
   </div>
@@ -58,8 +49,8 @@ export default {
   },
   data() {
     return {
-      isChoice: false,
-    }
+      isChoice: false
+    };
   },
   props: {
     total: {
@@ -91,7 +82,7 @@ export default {
       required: true
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -183,5 +174,4 @@ export default {
 
     &--right
       background-image: url("data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2214%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%2013l5.93-5.93a.1.1%200%20000-.14L1%201%22%20stroke%3D%22%239FA2B4%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E")
-
 </style>

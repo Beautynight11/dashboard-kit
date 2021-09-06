@@ -49,7 +49,7 @@
 <script>
 export default {
   name: "Graph"
-}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -156,5 +156,4 @@ export default {
     text-align: center
     letter-spacing: 0.3px
     font-weight: 700
-
 </style>

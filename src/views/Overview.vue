@@ -1,8 +1,8 @@
 <template>
   <div class="overview">
-    <Statistics/>
-    <Graph/>
-    <Details/>
+    <Statistics />
+    <Graph />
+    <Details />
   </div>
 </template>
 
@@ -18,9 +18,7 @@ export default {
     Graph,
     Statistics
   }
-}
+};
 </script>
 
-<style lang="sass" scoped>
-
-</style>
+<style lang="sass" scoped></style>
