@@ -1,6 +1,12 @@
 <template>
   <div class="tickets">
-    <Table heading="All tickets" :items="people" :headings="headings" />
+    <Table
+      heading="All tickets"
+      :items="doSorting"
+      :headings="headings"
+      :sorting="sorting"
+      :get-id="getId"
+    />
   </div>
 </template>
 
@@ -30,13 +36,40 @@ export default {
           name: "Priority",
           cn: "table-body__heading--priority"
         }
-      ]
+      ],
+      sorting: ['details', 'name', 'date', 'priority'],
+      id: '',
     };
   },
   computed: {
     ...mapState({
       people: "people"
-    })
+    }),
+    doSorting() {
+      let newArray = [...this.people];
+      if (this.id) {
+        newArray.sort((a, b) => {
+          let prev;
+          let next;
+          if (this.id === 'details') {
+            prev = a.data;
+            next = b.data;
+          } else {
+            prev = a[this.id];
+            next = b[this.id];
+          }
+          if (prev > next) return 1;
+          if (prev < next) return -1;
+          return 0;
+        });
+      }
+      return newArray;
+    }
+  },
+  methods: {
+    getId(el) {
+      this.id = el;
+    },
   }
 };
 </script>

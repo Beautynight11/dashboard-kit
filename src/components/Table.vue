@@ -6,7 +6,10 @@
         <div class="table__filters">
           <div class="table__sort">
             <div class="table__icon table__icon--sort"></div>
-            Sort
+            <Sort
+              :items="sorting"
+              :get-id="getId"
+            />
           </div>
           <div class="table__filter">
             <div class="table__icon table__icon--filter"></div>
@@ -33,17 +36,18 @@
 <script>
 import TableBody from "@/components/TableBody";
 import TableFooter from "@/components/TableFooter";
+import Sort from "@/components/Sort";
 
 const SIZES = [3, 8, 15, 20];
 
 export default {
   name: "Table",
-  components: { TableFooter, TableBody },
+  components: { Sort, TableFooter, TableBody },
   data() {
     return {
       size: SIZES[0],
       sizeList: SIZES,
-      page: 0
+      page: 0,
     };
   },
   computed: {
@@ -78,7 +82,15 @@ export default {
     items: {
       type: Array,
       required: true
-    }
+    },
+    sorting: {
+      type: Array,
+      require: true
+    },
+    getId: {
+      type: Function,
+      require: true
+    },
   }
 };
 </script>
