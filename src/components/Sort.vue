@@ -2,7 +2,7 @@
   <div class="sort">
     <div class="sort__title" @click="isSort = !isSort">Sort</div>
     <div class="sort__panel" v-if="isSort">
-      <div class="sort__by">Sort by:</div>
+      <div class="sort__by">Sort by</div>
       <div
         class="sort__name"
         @click="isSort = !isSort; getId(item)"
@@ -49,18 +49,20 @@ export default {
     border-radius: 8px
     font-size: 12px
     position: absolute
-    top: 20px
-    left: 0
+    top: 25px
+    left: -12px
+    box-shadow: 4px 4px 10px 0 rgba(34, 60, 80, 0.2)
 
   &__by
-    padding: 5px 10px
+    padding: 5px 12px
     border-bottom: 1px solid #DFE0EB
     cursor: default
+    color: #7d7d7d
+    font-size: 11px
 
   &__name
     padding: 5px 12px
     border-bottom: 1px solid #DFE0EB
     cursor: pointer
-
-    
+    font-size: 14px
 </style>

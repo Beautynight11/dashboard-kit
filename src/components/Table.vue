@@ -13,7 +13,7 @@
           </div>
           <div class="table__filter">
             <div class="table__icon table__icon--filter"></div>
-            Filter
+            <FilterForTable/>
           </div>
         </div>
       </div>
@@ -30,6 +30,7 @@
         :go-to-prev-page="goToPrevPage"
       />
     </div>
+    <div class="table-window__filter"></div>
   </div>
 </template>
 
@@ -37,17 +38,19 @@
 import TableBody from "@/components/TableBody";
 import TableFooter from "@/components/TableFooter";
 import Sort from "@/components/Sort";
+import FilterForTable from "@/components/Filter-for-table";
 
 const SIZES = [3, 8, 15, 20];
 
 export default {
   name: "Table",
-  components: { Sort, TableFooter, TableBody },
+  components: { FilterForTable, Sort, TableFooter, TableBody },
   data() {
     return {
       size: SIZES[0],
       sizeList: SIZES,
       page: 0,
+      isFilter: false,
     };
   },
   computed: {
@@ -55,7 +58,7 @@ export default {
       const start = this.page * this.size;
       const end = start + this.size;
       return this.items.slice(start, end);
-    }
+    },
   },
   methods: {
     changeSize(selectedSize) {
@@ -67,7 +70,7 @@ export default {
     },
     goToPrevPage() {
       this.page--;
-    }
+    },
   },
   props: {
     heading: {
@@ -149,4 +152,20 @@ export default {
 
     &--filter
       background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11.437%200H.563c-.5%200-.752.606-.398.96L4.5%205.295v4.83c0%20.184.09.355.24.46l1.875%201.313a.563.563%200%2000.885-.461V5.295L11.835.96a.563.563%200%2000-.398-.96z%22%20fill%3D%22%23C5C7CD%22%2F%3E%3C%2Fsvg%3E")
+
+.table-window__filter
+  display: none
+
+.table--active
+  display: flex
+
+.table__page--active
+  flex: 0 1 80%
+  width: 80%
+  border-right: 1px solid #DFE0EB
+
+.table-window__filter--active
+  display: block
+  flex: 0 1 20%
+  width: 20%
 </style>
