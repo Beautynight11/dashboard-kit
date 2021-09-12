@@ -2,10 +2,11 @@
   <div class="tickets">
     <Table
       heading="All tickets"
-      :items="doSorting"
+      :items="finalItems"
       :headings="headings"
-      :sorting="sorting"
+      :sort-options="sortOptions"
       :get-id="getId"
+      :handle-filter="handleFilter"
     />
   </div>
 </template>
@@ -37,21 +38,33 @@ export default {
           cn: "table-body__heading--priority"
         }
       ],
-      sorting: ['details', 'name', 'date', 'priority'],
-      id: '',
+      sortOptions: ["details", "name", "date", "priority"],
+      id: "",
+      filter: {}
     };
   },
   computed: {
     ...mapState({
       people: "people"
     }),
-    doSorting() {
-      let newArray = [...this.people];
+    finalItems() {
+      return this.sortItems(this.filterItems(this.people));
+    }
+  },
+  methods: {
+    getId(el) {
+      this.id = el;
+    },
+    handleFilter(data) {
+      this.filter = data;
+    },
+    sortItems(items) {
+      let newArray = [...items];
       if (this.id) {
         newArray.sort((a, b) => {
           let prev;
           let next;
-          if (this.id === 'details') {
+          if (this.id === "details") {
             prev = a.data;
             next = b.data;
           } else {
@@ -64,12 +77,30 @@ export default {
         });
       }
       return newArray;
-    }
-  },
-  methods: {
-    getId(el) {
-      this.id = el;
     },
+    filterItems(items) {
+      return items.filter(item => {
+        const matchingSearch = this.filter.search
+          ? item.data
+              .toLowerCase()
+              .includes(this.filter.search?.toLowerCase()) ||
+            item.name.toLowerCase().includes(this.filter.search?.toLowerCase())
+          : true;
+        const matchingDate =
+          this.filter.date?.length === 2 && !this.filter.date.includes(null)
+            ? new Date(item.date)?.valueOf() >=
+                this.filter.date[0]?.valueOf() &&
+              new Date(item.date)?.valueOf() <= this.filter.date[1]?.valueOf()
+            : true;
+        console.log(this.filter.date);
+        const matchingPriority = this.filter.priority
+          ? item.priority
+              .toLowerCase()
+              .includes(this.filter.priority?.toLowerCase())
+          : true;
+        return matchingSearch && matchingDate && matchingPriority;
+      });
+    }
   }
 };
 </script>

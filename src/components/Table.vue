@@ -7,13 +7,15 @@
           <div class="table__sort">
             <div class="table__icon table__icon--sort"></div>
             <Sort
-              :items="sorting"
+              :items="sortOptions"
               :get-id="getId"
             />
           </div>
           <div class="table__filter">
             <div class="table__icon table__icon--filter"></div>
-            <FilterForTable/>
+            <FilterForTable
+              :handle-filter="handleFilter"
+            />
           </div>
         </div>
       </div>
@@ -38,7 +40,7 @@
 import TableBody from "@/components/TableBody";
 import TableFooter from "@/components/TableFooter";
 import Sort from "@/components/Sort";
-import FilterForTable from "@/components/Filter-for-table";
+import FilterForTable from "@/components/FilterForTable";
 
 const SIZES = [3, 8, 15, 20];
 
@@ -50,7 +52,7 @@ export default {
       size: SIZES[0],
       sizeList: SIZES,
       page: 0,
-      isFilter: false,
+      isFilter: false
     };
   },
   computed: {
@@ -58,7 +60,7 @@ export default {
       const start = this.page * this.size;
       const end = start + this.size;
       return this.items.slice(start, end);
-    },
+    }
   },
   methods: {
     changeSize(selectedSize) {
@@ -70,7 +72,7 @@ export default {
     },
     goToPrevPage() {
       this.page--;
-    },
+    }
   },
   props: {
     heading: {
@@ -86,11 +88,15 @@ export default {
       type: Array,
       required: true
     },
-    sorting: {
+    sortOptions: {
       type: Array,
       require: true
     },
     getId: {
+      type: Function,
+      require: true
+    },
+    handleFilter: {
       type: Function,
       require: true
     },

@@ -1,11 +1,20 @@
 <template>
   <div class="sort">
-    <div class="sort__title" @click="isSort = !isSort">Sort</div>
+    <div
+      class="sort__title"
+      @click="isSort = !isSort;"
+      v-click-outside="onClickOutside"
+    >
+      Sort
+    </div>
     <div class="sort__panel" v-if="isSort">
       <div class="sort__by">Sort by</div>
       <div
         class="sort__name"
-        @click="isSort = !isSort; getId(item)"
+        @click="
+          isSort = !isSort;
+          getId(item);
+        "
         v-for="item in items"
         :key="item"
       >
@@ -16,11 +25,22 @@
 </template>
 
 <script>
+import "vue2-datepicker/index.css";
+import vClickOutside from "v-click-outside";
+
 export default {
   name: "Sort",
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   data() {
     return {
-      isSort: false,
+      isSort: false
+    };
+  },
+  methods: {
+    onClickOutside() {
+      this.isSort = false;
     }
   },
   props: {
@@ -32,10 +52,6 @@ export default {
       type: Function,
       require: true
     },
-    // id: {
-    //   type: String,
-    //   require: true
-    // }
   }
 };
 </script>
@@ -49,9 +65,9 @@ export default {
     border-radius: 8px
     font-size: 12px
     position: absolute
-    top: 25px
+    top: 40px
     left: -12px
-    box-shadow: 4px 4px 10px 0 rgba(34, 60, 80, 0.2)
+    box-shadow: 0 4px 10px 0 rgba(34, 60, 80, 0.2)
 
   &__by
     padding: 5px 12px
