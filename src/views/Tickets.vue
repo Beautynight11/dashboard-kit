@@ -92,7 +92,6 @@ export default {
                 this.filter.date[0]?.valueOf() &&
               new Date(item.date)?.valueOf() <= this.filter.date[1]?.valueOf()
             : true;
-        console.log(this.filter.date);
         const matchingPriority = this.filter.priority
           ? item.priority
               .toLowerCase()
