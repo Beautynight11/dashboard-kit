@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="graph__image">
-          <div class="graph__img"></div>
+          <LineChart />
         </div>
       </div>
       <div class="graph__information">
@@ -47,8 +47,10 @@
 </template>
 
 <script>
+import LineChart from "@/components/LineChart";
 export default {
-  name: "Graph"
+  name: "Graph",
+  components: { LineChart }
 };
 </script>
 
